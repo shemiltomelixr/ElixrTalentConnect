@@ -9,8 +9,18 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var elixrSymbolImage: UIImageView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        elixrSymbolImage.layer.cornerRadius = 20
+        elixrSymbolImage.layer.shadowColor = UIColor.darkGray.cgColor
+        elixrSymbolImage.layer.shadowOpacity = 0.5
+        elixrSymbolImage.layer.shadowRadius = 5
+       
+       
 
         // Do any additional setup after loading the view.
     }
