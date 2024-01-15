@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate  {
 
     @IBOutlet weak var elixrSymbolImage: UIImageView!
     @IBOutlet weak var signinBottomView: UIView!
@@ -26,11 +26,31 @@ class LoginViewController: UIViewController {
         setUserTextFieldLeftSystemImage(textField: userEmail, systemName: "envelope", tintColor: .orange)
         setUserTextFieldLeftSystemImage(textField: userPassword, systemName: "lock", tintColor: .orange)
         
-       
-       
+        userEmail.delegate = self
+        userPassword.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 
         
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+        }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            self.view.frame.origin.y = -keyboardSize.height
+            }
+        
+        }
+    @objc func keyboardWillHide(_ notification: Notification) {
+        self.view.frame.origin.y = 0
+        }
+
+    
     func setUserTextFieldLeftSystemImage(textField: UITextField, systemName: String, tintColor: UIColor) {
         let imageView = UIImageView(image: UIImage(systemName: systemName))
         imageView.tintColor = tintColor
