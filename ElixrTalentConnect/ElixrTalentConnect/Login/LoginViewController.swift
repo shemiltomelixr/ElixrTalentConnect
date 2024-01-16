@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class LoginViewController: UIViewController, UITextFieldDelegate  {
 
@@ -14,6 +15,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
+    
+    private var viewModel = LoginViewModel()
+    
+    @IBAction func signInTapped(_ sender: Any) {
+        let loginModel = LoginModel(email: userEmail.text ?? "", password: userPassword.text ?? "")
+        let validationResult = viewModel.validateCredentials(model: loginModel)
+        
+        if validationResult.isValid {
+            viewModel.authenticateWithBiometrics { [weak self] (success, error) in
+                if success {
+                    self?.performSegue(withIdentifier: "HomeSegue", sender: nil)
+                } else {
+                    if let error = error {
+                        self?.showAlert(message: "Biometric authentication failed: \(error.localizedDescription)")
+                    }
+                }
+            }
+        } else {
+            showAlert(message: validationResult.message ?? "Invalid credentials.")
+        }
+           }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +57,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
 
         
     }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+        }
+
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
