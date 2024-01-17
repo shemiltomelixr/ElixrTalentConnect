@@ -7,7 +7,24 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
+    let datas: [SignUpModel] = [.fullName, .emailAddress, .textPassword , .confirmPassword]
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return datas.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SignUPTableViewCell else {
+            return UITableViewCell()
+        }
+        let data = datas[indexPath.row]
+        cell.CellLabel.text = data.label
+        return cell
+        
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,14 +33,6 @@ class SignUpViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

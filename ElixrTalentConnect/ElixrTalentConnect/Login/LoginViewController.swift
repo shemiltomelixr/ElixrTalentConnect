@@ -9,7 +9,7 @@ import UIKit
 import LocalAuthentication
 
 class LoginViewController: UIViewController, UITextFieldDelegate  {
-
+    
     @IBOutlet weak var elixrSymbolImage: UIImageView!
     @IBOutlet weak var signinBottomView: UIView!
     
@@ -35,8 +35,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         } else {
             showAlert(message: validationResult.message ?? "Invalid credentials.")
         }
-           }
-   
+    }
+    
+    
+    @IBAction func GoTOSignUpTapped(_ sender: Any) {
+        performSegue(withIdentifier: "SignUpSegue", sender: self)
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,32 +60,39 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-
+        
         
     }
+    
+    
+    
+    
     
     func showAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
-        }
-
+    }
+    
+    
+    
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-        }
+    }
     
     @objc func keyboardWillShow(_ notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             self.view.frame.origin.y = -keyboardSize.height
-            }
-        
         }
+        
+    }
     @objc func keyboardWillHide(_ notification: Notification) {
         self.view.frame.origin.y = 0
-        }
-
+    }
+    
     
     func setUserTextFieldLeftSystemImage(textField: UITextField, systemName: String, tintColor: UIColor) {
         let imageView = UIImageView(image: UIImage(systemName: systemName))
@@ -89,7 +102,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         imageView.center = CGPoint(x: paddingView.bounds.midX, y: paddingView.bounds.midY)
         textField.leftView = paddingView
         textField.leftViewMode = .always
-       }
- 
-
+    }
+    
+    
 }

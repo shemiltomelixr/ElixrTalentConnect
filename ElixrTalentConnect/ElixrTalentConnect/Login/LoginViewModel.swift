@@ -12,11 +12,11 @@ import LocalAuthentication
 class LoginViewModel {
     
     func validateCredentials(model: LoginModel) -> (isValid: Bool, message: String?) {
-        guard !model.email.isEmpty else {
-            return (false, "Please enter email.")
+        guard !model.email.isEmpty, model.email.contains("@"), model.email.contains(".") else {
+            return (false, "Please enter a valid email.")
         }
         guard !model.password.isEmpty, isAlphanumeric(model.password), model.password.count >= 8 else {
-            return (false, "Please enter a alphanumeric password.")
+            return (false, "Please enter a valid alphanumeric password.")
         }
         return (true, nil)
     }
