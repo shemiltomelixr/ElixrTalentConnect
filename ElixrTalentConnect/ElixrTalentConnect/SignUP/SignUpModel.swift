@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 enum SignUpModel{
@@ -17,7 +18,7 @@ enum SignUpModel{
 
 extension SignUpModel {
     
-    var label : String {
+    var title : String {
         switch self {
         case .fullName:
             return "Full NAME"
@@ -30,47 +31,30 @@ extension SignUpModel {
         }
    
     }
-    var placeHolder : String {
+    var placeholderText : String {
         switch self {
         case .fullName:
-            return "Enter your Full NAME"
+            return "Enter Your Full NAME"
         case .emailAddress:
-            return "Enter Your Email ADDRESS"
+            return "Enter your Email ADDRESS"
         case .textPassword:
             return "Enter Your PASSWORD"
         case .confirmPassword:
-            return "CONFIRM Your PASSWORD"
+            return "Enter CONFIRM PASSWORD"
         }
    
     }
-    var image : String {
+    var systemImage: UIImage? {
         switch self {
-        case .fullName:
-            return "Full NAME"
-        case .emailAddress:
-            return "Email ADDRESS"
-        case .textPassword:
-            return "PASSWORD"
-        case .confirmPassword:
-            return "CONFIRM PASSWORD"
+        case .fullName: return UIImage(systemName: "person")?.withTintColor(.orange, renderingMode: .alwaysOriginal)
+        case .emailAddress: return UIImage(systemName: "envelope")?.withTintColor(.orange, renderingMode: .alwaysOriginal)
+        case .textPassword: return UIImage(systemName: "lock")?.withTintColor(.orange, renderingMode: .alwaysOriginal)
+        case .confirmPassword: return UIImage(systemName: "lock")?.withTintColor(.orange, renderingMode: .alwaysOriginal)
         }
-   
     }
-    var button : String {
-        switch self {
-        case .fullName:
-            return "Full NAME"
-        case .emailAddress:
-            return "Email ADDRESS"
-        case .textPassword:
-            return "PASSWORD"
-        case .confirmPassword:
-            return "CONFIRM PASSWORD"
-        }
-   
-    }
-    
     
 
+
 }
+
 

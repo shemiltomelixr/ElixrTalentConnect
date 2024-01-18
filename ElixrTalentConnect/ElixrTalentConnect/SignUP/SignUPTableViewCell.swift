@@ -9,22 +9,20 @@ import UIKit
 
 class SignUPTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var CellView: UIView!
+    @IBOutlet weak var cellView: UIView!
     
-    @IBOutlet weak var CellImage: UIImageView!
+    @IBOutlet weak var cellImage: UIImageView!
     
-    @IBOutlet weak var CellLabel: UILabel!
+    @IBOutlet weak var cellLabel: UILabel!
     
-    @IBOutlet weak var CellText: UITextField!
+    @IBOutlet weak var cellTextField: UITextField!
     
-    @IBOutlet weak var CellButton: UIButton!
-    
-    
-    
+    @IBOutlet weak var cellButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        cellView.layer.borderWidth = 0.5
+        cellView.layer.borderColor = UIColor.gray.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
