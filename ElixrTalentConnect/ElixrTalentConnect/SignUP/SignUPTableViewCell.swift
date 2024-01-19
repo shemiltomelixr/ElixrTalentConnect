@@ -17,12 +17,16 @@ class SignUPTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellTextField: UITextField!
     
+    
     @IBOutlet weak var cellButton: UIButton!
+    var eyeButtonTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         cellView.layer.borderWidth = 0.5
         cellView.layer.borderColor = UIColor.gray.cgColor
+        
+        cellButton.addTarget(self, action: #selector(eyeButtonTapped(_:)), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,5 +34,9 @@ class SignUPTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @objc private func eyeButtonTapped(_ sender: UIButton) {
+           eyeButtonTapped?()
+       }
 
 }

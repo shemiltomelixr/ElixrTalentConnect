@@ -38,9 +38,9 @@ extension SignUpModel {
         case .emailAddress:
             return "Enter your Email ADDRESS"
         case .textPassword:
-            return "Enter Your PASSWORD"
+            return "Enter Your Password"
         case .confirmPassword:
-            return "Enter CONFIRM PASSWORD"
+            return "Confirm Your Password"
         }
    
     }

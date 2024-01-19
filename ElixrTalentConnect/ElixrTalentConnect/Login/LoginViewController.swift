@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         if validationResult.isValid {
             viewModel.authenticateWithBiometrics { [weak self] (success, error) in
                 if success {
-                    self?.performSegue(withIdentifier: "HomeSegue", sender: nil)
+                    self?.performSegue(withIdentifier: "LoginToHome", sender: nil)
                 } else {
                     if let error = error {
                         self?.showAlert(message: "Biometric authentication failed: \(error.localizedDescription)")
