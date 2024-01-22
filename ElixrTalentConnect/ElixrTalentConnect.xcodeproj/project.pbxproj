@@ -22,6 +22,9 @@
 		CA293C472B567AFF00E6BE46 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA293C462B567AFF00E6BE46 /* LoginModel.swift */; };
 		CA293C492B567B5900E6BE46 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA293C482B567B5900E6BE46 /* LoginViewModel.swift */; };
 		CA3834CE2B552726001306EC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3834CD2B552726001306EC /* SignUpViewController.swift */; };
+		CA67069C2B5C40B20051EC13 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA67069B2B5C40B20051EC13 /* HomeModel.swift */; };
+		CA67069E2B5C40CB0051EC13 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA67069D2B5C40CB0051EC13 /* HomeViewModel.swift */; };
+		CA9C77662B5D2DD300EA31BD /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9C77652B5D2DD300EA31BD /* HomeTableViewCell.swift */; };
 		CAB8E1A42B5A3C7B0088D326 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB8E1A32B5A3C7B0088D326 /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,9 @@
 		CA293C462B567AFF00E6BE46 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		CA293C482B567B5900E6BE46 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CA3834CD2B552726001306EC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CA67069B2B5C40B20051EC13 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		CA67069D2B5C40CB0051EC13 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CA9C77652B5D2DD300EA31BD /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		CAB8E1A32B5A3C7B0088D326 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				CA293C442B56603700E6BE46 /* HomeViewController.swift */,
+				CA67069B2B5C40B20051EC13 /* HomeModel.swift */,
+				CA67069D2B5C40CB0051EC13 /* HomeViewModel.swift */,
+				CA9C77652B5D2DD300EA31BD /* HomeTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -305,10 +314,13 @@
 			files = (
 				CA293C452B56603700E6BE46 /* HomeViewController.swift in Sources */,
 				CA293C472B567AFF00E6BE46 /* LoginModel.swift in Sources */,
+				CA9C77662B5D2DD300EA31BD /* HomeTableViewCell.swift in Sources */,
+				CA67069C2B5C40B20051EC13 /* HomeModel.swift in Sources */,
 				CAB8E1A42B5A3C7B0088D326 /* SignUpViewModel.swift in Sources */,
 				CA1D4F8E2B4E6D6300FEB386 /* LoginViewController.swift in Sources */,
 				CA0228242B5798A80038AB7A /* SignUpModel.swift in Sources */,
 				CA1D4F5E2B4E612600FEB386 /* AppDelegate.swift in Sources */,
+				CA67069E2B5C40CB0051EC13 /* HomeViewModel.swift in Sources */,
 				CA3834CE2B552726001306EC /* SignUpViewController.swift in Sources */,
 				CA1D4F602B4E612600FEB386 /* SceneDelegate.swift in Sources */,
 				CA293C492B567B5900E6BE46 /* LoginViewModel.swift in Sources */,

@@ -7,7 +7,10 @@
 
 import Foundation
 
+/// Model for user login information.
 struct LoginModel {
+    /// Email address for login.
     let email: String
+    /// Password for login.
     let password: String
 }
