@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Ro-hZ-pYd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fq9-X4-eV3">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -555,6 +555,7 @@
                         <constraints>
                             <constraint firstItem="QKk-M4-MyN" firstAttribute="leading" secondItem="Hh1-zl-6Jf" secondAttribute="leading" id="1WW-Q1-LVP"/>
                             <constraint firstItem="QKk-M4-MyN" firstAttribute="bottom" secondItem="Hh1-zl-6Jf" secondAttribute="bottom" id="2rS-Bq-gTX"/>
+                            <constraint firstItem="vjU-dT-wuk" firstAttribute="top" secondItem="GDr-DI-w1w" secondAttribute="bottom" constant="27" id="5jq-1i-YbV"/>
                             <constraint firstItem="RFS-Tb-H8M" firstAttribute="top" secondItem="xhG-T1-0al" secondAttribute="top" constant="64" id="8xc-k1-EEH"/>
                             <constraint firstItem="vjU-dT-wuk" firstAttribute="leading" secondItem="Hh1-zl-6Jf" secondAttribute="leading" constant="44" id="Cr1-gK-TIm"/>
                             <constraint firstItem="Hh1-zl-6Jf" firstAttribute="trailing" secondItem="RFS-Tb-H8M" secondAttribute="trailing" constant="25" id="GWB-pM-UfK"/>
@@ -564,13 +565,13 @@
                             <constraint firstItem="QKk-M4-MyN" firstAttribute="trailing" secondItem="Hh1-zl-6Jf" secondAttribute="trailing" id="cm6-FN-e7y"/>
                             <constraint firstItem="Hh1-zl-6Jf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vjU-dT-wuk" secondAttribute="trailing" symbolic="YES" id="i4p-Yq-am1"/>
                             <constraint firstItem="RFS-Tb-H8M" firstAttribute="leading" secondItem="Hh1-zl-6Jf" secondAttribute="leading" constant="24" id="pgl-1e-Ag0"/>
-                            <constraint firstItem="vjU-dT-wuk" firstAttribute="top" secondItem="GDr-DI-w1w" secondAttribute="bottom" constant="27" id="w9t-I6-itU"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="4r9-0U-wFx"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="seacrchBarField" destination="KQ1-TR-BWX" id="zT1-AH-sAX"/>
                         <outlet property="tableView" destination="QKk-M4-MyN" id="tjI-tL-cce"/>
                     </connections>
                 </viewController>
@@ -610,11 +611,11 @@
             </objects>
             <point key="canvasLocation" x="5474" y="652"/>
         </scene>
-        <!--Home Tab View Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="o9Y-dG-Ncp">
             <objects>
-                <tabBarController id="3Ro-hZ-pYd" customClass="HomeTabViewController" customModule="ElixrTalentConnect" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="bottom" insetsLayoutMarginsFromSafeArea="NO" id="mQh-co-pt8">
+                <tabBarController id="3Ro-hZ-pYd" customClass="TabBarViewController" customModule="ElixrTalentConnect" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="bottom" insetsLayoutMarginsFromSafeArea="NO" id="mQh-co-pt8" customClass="Tab">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.14547884552668533" green="0.14152052166810256" blue="0.34123308634020622" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -671,13 +672,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

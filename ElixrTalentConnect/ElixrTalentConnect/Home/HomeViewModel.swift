@@ -9,6 +9,7 @@ import Foundation
 
 class HomeViewModel {
     private var jobs: [Job] = []
+    private var filteredJobs: [Job] = []
     
     func fetchJobData(completion: @escaping (JobArray?, Error?) -> Void) {
         guard let url = URL(string: "http://localhost:9001/elixr/jobs") else { return }
@@ -39,4 +40,22 @@ class HomeViewModel {
     func updateJobs(_ job: [Job]) {
         jobs = job
     }
+    
+    func filterJobs(by searchText: String) -> [Job] {
+        if searchText.isEmpty {
+            return jobs
+        } else {
+            return jobs.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+            }
+        }
+    func updateFilteredJobs(_ jobs: [Job]) {
+            filteredJobs = jobs
+        }
+    func numberOfJobs(isSearching: Bool) -> Int {
+           return isSearching ? filteredJobs.count : jobs.count
+       }
+    func job(at index: Int, isSearching: Bool) -> Job {
+           return isSearching ? filteredJobs[index] : jobs[index]
+       }
+    
 }
