@@ -20,7 +20,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     @IBAction func signInTapped(_ sender: Any) {
         let loginModel = LoginModel(email: userEmailTextField.text ?? "", password: userPasswordTextField.text ?? "")
         let validationResult = viewModel.validateCredentials(model: loginModel)
-        
         if validationResult.isValid {
             viewModel.authenticateWithBiometrics { [weak self] (success, error) in
                 if success {

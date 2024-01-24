@@ -7,10 +7,12 @@
 
 import Foundation
 
+///Collection of jobs retrieved from the api.
 struct JobArray: Decodable {
+    /// An array of individual job entries.
     var jobs: [Job]
 }
-
+/// Represents a single job with its details.
 struct Job: Decodable {
     let title: String
     let department: String
