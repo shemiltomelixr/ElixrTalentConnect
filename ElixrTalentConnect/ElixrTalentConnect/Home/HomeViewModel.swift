@@ -40,7 +40,6 @@ class HomeViewModel {
     func job(at index: Int) -> Job {
         return jobs[index]
     }
-    
     /// Updates the list of all jobs with the provided array.
     /// - Parameter job: The new array of jobs to replace the existing list.
     func updateJobs(_ job: [Job]) {
