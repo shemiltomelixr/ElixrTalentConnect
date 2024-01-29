@@ -1,0 +1,6 @@
+framework module Pods_ElixrTalentConnect_ElixrTalentConnectUITests {
+  umbrella header "Pods-ElixrTalentConnect-ElixrTalentConnectUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
