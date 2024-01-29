@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 /// Enumeration to represent different fields in the signup
 enum SignUpModel{
     case fullName

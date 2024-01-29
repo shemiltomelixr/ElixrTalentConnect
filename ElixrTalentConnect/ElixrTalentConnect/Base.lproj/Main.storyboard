@@ -356,13 +356,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QKk-M4-MyN">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="186" translatesAutoresizingMaskIntoConstraints="NO" id="RFS-Tb-H8M">
+                                <rect key="frame" x="24" y="64" width="344" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="09d-Wo-YNF">
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jj-8r-N2n">
+                                                <rect key="frame" x="0.0" y="8" width="51" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="list.dash" catalog="system">
+                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ziU-2o-NtL">
+                                                <rect key="frame" x="59" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="Zzx-Jd-WhM"/>
+                                                    <constraint firstAttribute="height" constant="50" id="zmV-vv-lng"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ff-9p-PtC">
+                                        <rect key="frame" x="295" y="0.0" width="49" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="bell" catalog="system">
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="GDr-DI-w1w">
+                                <rect key="frame" x="35" y="116" width="323.33333333333331" height="35"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" placeholder="Search for Jobs" translatesAutoresizingMaskIntoConstraints="NO" id="KQ1-TR-BWX">
+                                        <rect key="frame" x="0.0" y="0.0" width="241" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="241" id="3Oz-CA-6TY"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Tst-Kb-Tpu" id="JjH-Qd-7Bg"/>
+                                        </connections>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeE-Ry-skf">
+                                        <rect key="frame" x="270" y="0.0" width="53.333333333333314" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Dcd-we-gB7"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="checklist.unchecked" catalog="system">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" red="0.87058818339999999" green="0.56078433989999998" blue="0.40000003579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QKk-M4-MyN">
                                 <rect key="frame" x="0.0" y="206.66666666666669" width="393" height="513.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" red="0.8392156959" green="0.8392156959" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="JobCell" rowHeight="127" id="Der-G3-f2D" customClass="HomeTableViewCell" customModule="ElixrTalentConnect" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="127"/>
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Der-G3-f2D" id="naD-3k-iD3">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="127"/>
@@ -386,6 +445,9 @@
                                                                     <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
                                                                         <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </buttonConfiguration>
+                                                                    <connections>
+                                                                        <action selector="wishListButtonTapped:" destination="Der-G3-f2D" eventType="touchUpInside" id="ech-lW-hgN"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -476,7 +538,7 @@
                                             <outlet property="jobDetailsView" destination="llj-uH-i5v" id="Foe-NX-irl"/>
                                             <outlet property="locationLabel" destination="5ve-Lg-MHb" id="D7U-ZE-pcN"/>
                                             <outlet property="titleLabel" destination="IYG-Jj-xHD" id="hJ2-ps-dw4"/>
-                                            <outlet property="wishList" destination="7uL-in-c9H" id="esu-Ek-nZ9"/>
+                                            <outlet property="wishListbutton" destination="7uL-in-c9H" id="kDe-1w-vqD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -485,65 +547,6 @@
                                     <outlet property="delegate" destination="Tst-Kb-Tpu" id="8sD-7s-hDD"/>
                                 </connections>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="186" translatesAutoresizingMaskIntoConstraints="NO" id="RFS-Tb-H8M">
-                                <rect key="frame" x="24" y="64" width="344" height="50"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="09d-Wo-YNF">
-                                        <rect key="frame" x="0.0" y="0.0" width="109" height="50"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jj-8r-N2n">
-                                                <rect key="frame" x="0.0" y="8" width="51" height="34.333333333333336"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="list.dash" catalog="system">
-                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ziU-2o-NtL">
-                                                <rect key="frame" x="59" y="0.0" width="50" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="Zzx-Jd-WhM"/>
-                                                    <constraint firstAttribute="height" constant="50" id="zmV-vv-lng"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ff-9p-PtC">
-                                        <rect key="frame" x="295" y="0.0" width="49" height="50"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="bell" catalog="system">
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="GDr-DI-w1w">
-                                <rect key="frame" x="35" y="116" width="323.33333333333331" height="35"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" placeholder="Search for Jobs" translatesAutoresizingMaskIntoConstraints="NO" id="KQ1-TR-BWX">
-                                        <rect key="frame" x="0.0" y="0.0" width="241" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="241" id="3Oz-CA-6TY"/>
-                                        </constraints>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="Tst-Kb-Tpu" id="JjH-Qd-7Bg"/>
-                                        </connections>
-                                    </searchBar>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeE-Ry-skf">
-                                        <rect key="frame" x="270" y="0.0" width="53.333333333333314" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="Dcd-we-gB7"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="checklist.unchecked" catalog="system">
-                                            <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" red="0.87058818339999999" green="0.56078433989999998" blue="0.40000003579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </backgroundConfiguration>
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended Jobs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjU-dT-wuk">
                                 <rect key="frame" x="44.000000000000014" y="178" width="229.33333333333337" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>

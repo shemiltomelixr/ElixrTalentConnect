@@ -40,7 +40,6 @@ class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDat
                 self.performSegue(withIdentifier: "SignUpToHome", sender: nil)
             }
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.tableValues.count
     }
@@ -73,7 +72,6 @@ class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         // Return the configured cell
         return cell
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: false)
@@ -86,6 +84,4 @@ class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDat
            alertController.addAction(okAction)
            present(alertController, animated: true, completion: nil)
        }
-    
-
 }

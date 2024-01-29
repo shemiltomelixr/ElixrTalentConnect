@@ -35,5 +35,4 @@ class SignUPTableViewCell: UITableViewCell {
         cellView.layer.borderWidth = 0.5
         cellView.layer.borderColor = UIColor.gray.cgColor
     }
-
 }

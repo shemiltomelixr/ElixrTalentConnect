@@ -14,8 +14,13 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var deadLineLabel: UILabel!
     @IBOutlet weak var dateView: UIView!
     @IBOutlet weak var jobDetailsView: UIView!
-    @IBOutlet weak var wishList: UIButton!
-    
+    @IBOutlet weak var wishListbutton: UIButton!
+    @IBAction func wishListButtonTapped(_ sender: Any) {
+        viewModel.wishList()
+        updateWishlistButtonAppearance()
+    }
+    /// initialize a new instance of HomeViewModel
+    var viewModel = HomeViewModel()
     override func awakeFromNib() {
         super.awakeFromNib()
         homedesign()
@@ -30,47 +35,10 @@ class HomeTableViewCell: UITableViewCell {
         descriptionLabel.text = job.description
         locationLabel.text = job.location
         // Format the deadlineDate
-        if let formattedDate = formatDate(job.deadlineDate) {
+        if let formattedDate = viewModel.formatDate(job.deadlineDate) {
             deadLineLabel.text = formattedDate
         } else {
             deadLineLabel.text = "Invalid Date"
-        }
-    }
-    /// Formats a date string into a custom format
-    /// - Parameter dateString: The date string to be formatted.
-    /// - Returns: The formatted date string or nil if the date string is not in the expected format.
-    private func formatDate(_ dateString: String) -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        if let date = dateFormatter.date(from: dateString) {
-            let dayFormatter = DateFormatter()
-            dayFormatter.dateFormat = "d"
-            let day = dayFormatter.string(from: date)
-            let monthFormatter = DateFormatter()
-            monthFormatter.dateFormat = "MMM"
-            let month = monthFormatter.string(from: date)
-            let yearFormatter = DateFormatter()
-            yearFormatter.dateFormat = "yyyy"
-            let year = yearFormatter.string(from: date)
-            return "\(day)\(daySuffix(day)) \(month) \(year)"
-        } else {
-            return nil
-        }
-    }
-    /// Adds the appropriate suffix to the provided day.
-    /// - Parameter day: The day as a string.
-    /// - Returns:  The suffix corresponding to the provided day.
-    private func daySuffix(_ day: String) -> String {
-        let dayInt = Int(day) ?? 0
-        switch dayInt {
-        case 1, 21, 31:
-            return "st"
-        case 2, 22:
-            return "nd"
-        case 3, 23:
-            return "rd"
-        default:
-            return "th"
         }
     }
     ///  Applies custom design to the UI elements of the cell.
@@ -78,6 +46,23 @@ class HomeTableViewCell: UITableViewCell {
         dateView.layer.cornerRadius = 5
         jobDetailsView.layer.cornerRadius = 10
     }
-   
-
+    /// Change the appearence to wishlisted items
+    func updateWishlistButtonAppearance() {
+        guard let jobUniqueId = viewModel.jobId else { return }
+           let isWishlist = UserDefaults.standard.bool(forKey: jobUniqueId)
+           if isWishlist {
+               wishListbutton.setImage(UIImage(systemName: "heart.fill")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal), for: .normal)
+               jobDetailsView.backgroundColor = .systemIndigo
+               titleLabel.textColor = .white
+               descriptionLabel.textColor = .white
+               locationLabel.textColor = .white
+               
+           } else {
+               wishListbutton.setImage(UIImage(systemName: "heart"), for: .normal)
+               jobDetailsView.backgroundColor = .systemGray6
+               titleLabel.textColor = .black
+               descriptionLabel.textColor = .black
+               locationLabel.textColor = .gray
+           }
+      }
 }

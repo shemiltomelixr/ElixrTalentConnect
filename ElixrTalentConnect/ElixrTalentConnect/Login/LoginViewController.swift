@@ -102,5 +102,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         setUserTextFieldLeftSystemImage(textField: userEmailTextField, systemName: "envelope", tintColor: .orange)
         setUserTextFieldLeftSystemImage(textField: userPasswordTextField, systemName: "lock", tintColor: .orange)
     }
-    
 }
