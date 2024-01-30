@@ -12,6 +12,7 @@ struct JobArray: Decodable {
     /// An array of individual job entries.
     var jobs: [Job]
 }
+
 /// Represents a single job with its details.
 struct Job: Decodable {
     let id: String

@@ -8,6 +8,9 @@
 import UIKit
 
 class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
+    
+    // MARK: - IBOutlets
+
     /// To go back to the login page
     /// - Parameter sender: The object that triggered the action.
    @IBAction func backArrowTapped(_ sender: Any) {
@@ -19,8 +22,6 @@ class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         navigationController?.popViewController(animated: true)
     }
     @IBOutlet weak var tableView: UITableView!
-    // Get the SignUpModel for the current row
-    private let viewModel = SignUpViewModel()
     /// check validation when signup tapped
     /// - Parameter sender: The object that triggered the action.
     @IBAction func SignUpTapped(_ sender: Any) {
@@ -40,9 +41,26 @@ class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDat
                 self.performSegue(withIdentifier: "SignUpToHome", sender: nil)
             }
     }
+    
+    // MARK: - Properties
+    
+    // Get the SignUpModel for the current row
+    private let viewModel = SignUpViewModel()
+    
+    
+    // MARK: - View Controller Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: false)
+    }
+    
+    // MARK: - UITableViewDataSource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.tableValues.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SignUPTableViewCell else {
             return UITableViewCell()
@@ -72,10 +90,9 @@ class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         // Return the configured cell
         return cell
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.setHidesBackButton(true, animated: false)
-    }
+    
+    // MARK: - Alert
+    
     /// To show alert
     /// - Parameter message: The message to be shown in the alert.
     private func showAlert(message: String) {

@@ -7,13 +7,18 @@
 
 import UIKit
 
-class HomeViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+/// A view controller responsible for displaying a list of jobs and allowing users to search and view job details.
+class HomeViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var seacrchBarField: UISearchBar!
     
+    //To creeate an instance of viewmodel
     var viewModel = HomeViewModel()
     
-    // MARK: ViewController Lifecycle Methods
+    // MARK: -ViewController Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,23 +32,15 @@ class HomeViewController: UIViewController ,UITableViewDelegate, UITableViewData
         }
     }
     
-    // MARK:  UITableViewDelegate Methods
+    // MARK: - UITableViewDelegate
+ 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedJob = viewModel.job(at: indexPath.row, isSearching: ((seacrchBarField.text?.isEmpty) == nil))
+                showJobDetailsViewController(for: selectedJob)
+        }
     
-    /// Called when the text in the search bar changes.
-    /// - Parameters:
-    ///   - searchBar: The search bar object.
-    ///   - searchText: The current text entered in the search bar.
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            let filteredJobs = viewModel.filterJobs(by: searchText)
-            viewModel.updateFilteredJobs(filteredJobs)
-            tableView.reloadData()
-    }
+    // MARK: - UITableViewDataSource
     
-    /// Returns the number of rows in the table view section based on the current job data.
-    /// - Parameters:
-    ///   - tableView:  The table view requesting this information.
-    ///   - section: The section index of the table view.
-    /// - Returns: The number of rows in the section, considering whether a search operation is active.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let searchText = seacrchBarField.text {
             return viewModel.numberOfJobs(isSearching: !searchText.isEmpty)
@@ -51,11 +48,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate, UITableViewData
             return viewModel.numberOfJobs(isSearching: false)
         }
     }
-    ///  Configures and returns a cell for a specific row in the table view.
-    /// - Parameters:
-    ///   - tableView: The table view requesting this information.
-    ///   - indexPath: The index path that specifies the location of the row.
-    /// - Returns: A configured table view cell representing a job.
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "JobCell", for: indexPath) as? HomeTableViewCell else{
             return UITableViewCell()
@@ -66,5 +59,28 @@ class HomeViewController: UIViewController ,UITableViewDelegate, UITableViewData
         cell.viewModel.jobId = job.id
         cell.updateWishlistButtonAppearance()
         return cell
+    }
+    
+    // MARK: - Navigation
+        
+    /// Navigates to the job details view controller for the selected job.
+    /// - Parameter job: The selected job.
+    func showJobDetailsViewController(for job: Job) {
+        guard let jobDetailsViewController = storyboard?.instantiateViewController(withIdentifier: "JobDetailsViewController") as? JobDetailsViewController else {
+               return
+           }
+           jobDetailsViewController.job = job
+           navigationController?.pushViewController(jobDetailsViewController, animated: true)
+       }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension HomeViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            let filteredJobs = viewModel.filterJobs(by: searchText)
+            viewModel.updateFilteredJobs(filteredJobs)
+            tableView.reloadData()
     }
 }

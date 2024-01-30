@@ -8,7 +8,11 @@
 import Foundation
 
 class SignUpViewModel {
+    
     var tableValues: [SignUpModel] = [.fullName, .emailAddress, .textPassword, .confirmPassword]
+    
+    // MARK: - validation
+    
     /// Validates the sign-up information.
     /// - Parameters:
     ///   - fullName: The full name entered by the user.

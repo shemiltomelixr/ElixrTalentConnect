@@ -8,8 +8,12 @@
 import Foundation
 import UIKit
 import LocalAuthentication
+
 /// Handles the business logic and validation for the login functionality.
 class LoginViewModel {
+
+    // MARK: - validation
+    
     /// Validates user login credentials.
     /// - Parameter model: The login model containing user credentials
     /// - Returns: A tuple indicating whether the credentials are valid and an optional error message.
@@ -25,6 +29,18 @@ class LoginViewModel {
         // Credentials are valid
         return (true, nil)
     }
+    
+    /// Checks if the given string is alphanumeric.
+    /// - Parameter string: The string to be checked.
+    /// - Returns: A boolean indicating whether the string is alphanumeric.
+    func isAlphanumeric(_ string: String) -> Bool {
+        let letterSet = CharacterSet.letters
+        let digitSet = CharacterSet.decimalDigits
+        return !string.isEmpty && string.rangeOfCharacter(from: letterSet) != nil && string.rangeOfCharacter(from: digitSet) != nil
+    }
+    
+    // MARK: - Biometrics Authentication
+   
     /// Authenticates the user with biometric authentication.
     /// - Parameter completion: A closure to be called upon completion of biometric authentication, indicating success or failure.
     func authenticateWithBiometrics(completion: @escaping (Bool, Error?) -> Void) {
@@ -42,13 +58,5 @@ class LoginViewModel {
             // Biometric authentication is not available
             completion(false, error)
         }
-    }
-    /// Checks if the given string is alphanumeric.
-    /// - Parameter string: The string to be checked.
-    /// - Returns: A boolean indicating whether the string is alphanumeric.
-    func isAlphanumeric(_ string: String) -> Bool {
-        let letterSet = CharacterSet.letters
-        let digitSet = CharacterSet.decimalDigits
-        return !string.isEmpty && string.rangeOfCharacter(from: letterSet) != nil && string.rangeOfCharacter(from: digitSet) != nil
     }
 }

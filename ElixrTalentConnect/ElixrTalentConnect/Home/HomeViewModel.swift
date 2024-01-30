@@ -8,12 +8,17 @@
 import Foundation
 
 class HomeViewModel {
+    
+    // MARK: - Properties
+    
     /// Store all jobs retrieved
     private var jobs: [Job] = []
     /// Store jobs that match the current search text.
     private var filteredJobs: [Job] = []
     /// Representing Id of the job
     var jobId: String?
+    
+    // MARK: - Networking
     
     /// Fetch job data from the api
     /// - Parameter completion: A closure called upon completion of the data fetch, providing either the job data or an error.
@@ -33,6 +38,8 @@ class HomeViewModel {
         }.resume()
     }
     
+    // MARK: - Data Manipulation
+
     ///  Returns the job at the specified index from the list of all jobs.
     /// - Parameter index: The index of the job to retrieve.
     /// - Returns: The job at the specified index from the list of all jobs.
@@ -79,6 +86,8 @@ class HomeViewModel {
            return isSearching ? filteredJobs[index] : jobs[index]
        }
     
+    // MARK: - Date Formatting
+    
     /// Formats a date string into a custom format
     /// - Parameter dateString: The date string to be formatted.
     /// - Returns: The formatted date string or nil if the date string is not in the expected format.
@@ -117,6 +126,8 @@ class HomeViewModel {
             return "th"
         }
     }
+    
+    // MARK: - Wishlist
     
     /// Toggles the wishlist status of a job.
     func wishList() {
