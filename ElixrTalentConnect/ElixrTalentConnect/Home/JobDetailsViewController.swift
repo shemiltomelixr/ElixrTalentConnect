@@ -30,6 +30,6 @@ class JobDetailsViewController: UIViewController {
         guard let job = job else {
             return
         }
-        titleLabel.text = job.title
+        //titleLabel.text = job.title
     }
 }
