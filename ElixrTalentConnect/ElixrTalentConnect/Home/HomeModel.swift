@@ -19,8 +19,10 @@ struct Job: Decodable {
     let title: String
     let department: String
     let description: String
+    let responsibilities: String
     let location: String
     let salary: String
     let status: String
     let deadlineDate: String
+    let requirements: String
 }
