@@ -11,6 +11,7 @@ class JobDetailsViewController: UIViewController {
     
     /// The job object to display details.
     var job: Job?
+    //var viewModel = HomeViewModel()
     
     // MARK: - IBOutlets
     
@@ -22,14 +23,18 @@ class JobDetailsViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var wishListButtonInJobDetails: UIButton!
     @IBAction func wishListButtonInJobDetailsTapped(_ sender: Any) {
+        //viewModel.wishList()
+        wishList()
+        wishListButtonAppearance()
     }
     
     // MARK: - View Controller Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         design()
+        wishListButtonAppearance()
     }
     
     // MARK: - Configuration
@@ -53,4 +58,22 @@ class JobDetailsViewController: UIViewController {
         profileImage.layer.borderColor = UIColor.black.cgColor
         
     }
+    
+    func wishListButtonAppearance(){
+        guard let jobUniqueId = job?.id else { return }
+        let isWishlist = UserDefaults.standard.bool(forKey: jobUniqueId)
+        if isWishlist {
+            wishListButtonInJobDetails.setImage(UIImage(systemName: "heart.fill")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal), for: .normal)
+        } else {
+            wishListButtonInJobDetails.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+    }
+    
+    func wishList(){
+        guard let jobUniqueId = job?.id else { return }
+        let isWishlist = UserDefaults.standard.bool(forKey: jobUniqueId)
+        UserDefaults.standard.set(!isWishlist, forKey: jobUniqueId)
+        
+    }
+    
 }

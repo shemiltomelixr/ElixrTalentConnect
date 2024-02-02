@@ -31,12 +31,17 @@ class HomeViewController: UIViewController ,UITableViewDelegate, UITableViewData
             }
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+  
     
     // MARK: - UITableViewDelegate
  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedJob = viewModel.job(at: indexPath.row, isSearching: ((seacrchBarField.text?.isEmpty) == nil))
-                showJobDetailsViewController(for: selectedJob)
+        let searchTextIsEmpty = seacrchBarField.text?.isEmpty ?? true
+                    let selectedJob = viewModel.job(at: indexPath.row, isSearching: !searchTextIsEmpty)
+                    showJobDetailsViewController(for: selectedJob)
         }
     
     // MARK: - UITableViewDataSource
