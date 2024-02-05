@@ -25,8 +25,12 @@
 		CA293C472B567AFF00E6BE46 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA293C462B567AFF00E6BE46 /* LoginModel.swift */; };
 		CA293C492B567B5900E6BE46 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA293C482B567B5900E6BE46 /* LoginViewModel.swift */; };
 		CA3834CE2B552726001306EC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3834CD2B552726001306EC /* SignUpViewController.swift */; };
+		CA46E2F82B709136001423D3 /* MyJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA46E2F72B709136001423D3 /* MyJobViewController.swift */; };
+		CA46E2FB2B70A189001423D3 /* MyJobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA46E2FA2B70A189001423D3 /* MyJobTableViewCell.swift */; };
+		CA46E2FD2B70D2AC001423D3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA46E2FC2B70D2AC001423D3 /* StringExtension.swift */; };
 		CA67069C2B5C40B20051EC13 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA67069B2B5C40B20051EC13 /* HomeModel.swift */; };
 		CA67069E2B5C40CB0051EC13 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA67069D2B5C40CB0051EC13 /* HomeViewModel.swift */; };
+		CA723CCD2B6FC69200736F2D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA723CCC2B6FC69200736F2D /* ProfileViewController.swift */; };
 		CA7C729A2B5FB55C00DE195B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C72992B5FB55C00DE195B /* TabBarViewController.swift */; };
 		CA9C77662B5D2DD300EA31BD /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9C77652B5D2DD300EA31BD /* HomeTableViewCell.swift */; };
 		CAB8E1A42B5A3C7B0088D326 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB8E1A32B5A3C7B0088D326 /* SignUpViewModel.swift */; };
@@ -76,8 +80,12 @@
 		CA293C462B567AFF00E6BE46 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		CA293C482B567B5900E6BE46 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CA3834CD2B552726001306EC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CA46E2F72B709136001423D3 /* MyJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJobViewController.swift; sourceTree = "<group>"; };
+		CA46E2FA2B70A189001423D3 /* MyJobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyJobTableViewCell.swift; path = "../../../../../../../.Trash/ElixrTalentConnect 9.25.04 AM/ElixrTalentConnect/MyJob/MyJobTableViewCell.swift"; sourceTree = "<group>"; };
+		CA46E2FC2B70D2AC001423D3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		CA67069B2B5C40B20051EC13 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		CA67069D2B5C40CB0051EC13 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CA723CCC2B6FC69200736F2D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CA7C72992B5FB55C00DE195B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CA9C77652B5D2DD300EA31BD /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		CAB8E1A32B5A3C7B0088D326 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -183,11 +191,15 @@
 				CA1D4F662B4E612700FEB386 /* Assets.xcassets */,
 				CA1D4F682B4E612700FEB386 /* LaunchScreen.storyboard */,
 				CA1D4F6B2B4E612700FEB386 /* Info.plist */,
+				CA46E2F92B709148001423D3 /* MyJob */,
+				CA723CCE2B6FC69700736F2D /* Profile */,
 				CA0228222B5797360038AB7A /* Home */,
 				CA3834CF2B55272D001306EC /* SignUP */,
 				CA3834CC2B552692001306EC /* Login */,
 				CA7C729B2B5FB56200DE195B /* TabBar */,
 				CAF7D9132B67CE5100A80A1E /* SideMenu */,
+				CA46E2FC2B70D2AC001423D3 /* StringExtension.swift */,
+				CA46E2FE2B70FACC001423D3 /* Extension */,
 			);
 			path = ElixrTalentConnect;
 			sourceTree = "<group>";
@@ -228,6 +240,30 @@
 				CAB8E1A32B5A3C7B0088D326 /* SignUpViewModel.swift */,
 			);
 			path = SignUP;
+			sourceTree = "<group>";
+		};
+		CA46E2F92B709148001423D3 /* MyJob */ = {
+			isa = PBXGroup;
+			children = (
+				CA46E2F72B709136001423D3 /* MyJobViewController.swift */,
+				CA46E2FA2B70A189001423D3 /* MyJobTableViewCell.swift */,
+			);
+			path = MyJob;
+			sourceTree = "<group>";
+		};
+		CA46E2FE2B70FACC001423D3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CA723CCE2B6FC69700736F2D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CA723CCC2B6FC69200736F2D /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		CA7C729B2B5FB56200DE195B /* TabBar */ = {
@@ -488,12 +524,16 @@
 				CA293C452B56603700E6BE46 /* HomeViewController.swift in Sources */,
 				CA293C472B567AFF00E6BE46 /* LoginModel.swift in Sources */,
 				CA9C77662B5D2DD300EA31BD /* HomeTableViewCell.swift in Sources */,
+				CA46E2FB2B70A189001423D3 /* MyJobTableViewCell.swift in Sources */,
 				CA67069C2B5C40B20051EC13 /* HomeModel.swift in Sources */,
 				CA7C729A2B5FB55C00DE195B /* TabBarViewController.swift in Sources */,
 				CAB8E1A42B5A3C7B0088D326 /* SignUpViewModel.swift in Sources */,
+				CA46E2F82B709136001423D3 /* MyJobViewController.swift in Sources */,
 				CA1D4F8E2B4E6D6300FEB386 /* LoginViewController.swift in Sources */,
+				CA723CCD2B6FC69200736F2D /* ProfileViewController.swift in Sources */,
 				CA0228242B5798A80038AB7A /* SignUpModel.swift in Sources */,
 				CA1D4F5E2B4E612600FEB386 /* AppDelegate.swift in Sources */,
+				CA46E2FD2B70D2AC001423D3 /* StringExtension.swift in Sources */,
 				CAF1B5B32B68B0AC00F89D86 /* JobDetailsViewController.swift in Sources */,
 				CA67069E2B5C40CB0051EC13 /* HomeViewModel.swift in Sources */,
 				CA3834CE2B552726001306EC /* SignUpViewController.swift in Sources */,

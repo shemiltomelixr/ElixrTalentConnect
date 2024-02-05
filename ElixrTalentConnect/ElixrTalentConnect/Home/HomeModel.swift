@@ -14,7 +14,7 @@ struct JobArray: Decodable {
 }
 
 /// Represents a single job with its details.
-struct Job: Decodable {
+struct Job: Codable {
     let id: String
     let title: String
     let department: String

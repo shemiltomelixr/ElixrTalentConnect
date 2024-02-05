@@ -23,11 +23,13 @@ class JobDetailsViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var wishListButtonInJobDetails: UIButton!
     @IBAction func wishListButtonInJobDetailsTapped(_ sender: Any) {
-        //viewModel.wishList()
         wishList()
         wishListButtonAppearance()
     }
     
+    @IBAction func applyJobButtonTapped(_ sender: Any) {
+        applyJob()
+    }
     // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
@@ -75,5 +77,41 @@ class JobDetailsViewController: UIViewController {
         UserDefaults.standard.set(!isWishlist, forKey: jobUniqueId)
         
     }
+
+    func applyJob() {
+        var savedJobs = getSavedJobs()
+        guard let job = job, !isJobAlreadyApplied(savedJobs, job: job) else {
+            print("Job has already been applied for.")
+            showAlert(message: "Job already applied")
+            return
+        }
+        savedJobs.append(job)
+        let appliedJobsData = try? JSONEncoder().encode(savedJobs)
+        UserDefaults.standard.set(appliedJobsData, forKey: .savedJobsKey)
+        showAlert(message: "Job Applied")
+    }
     
+    func getSavedJobs() -> [Job] {
+        guard let savedJobData = UserDefaults.standard.data(forKey: .savedJobsKey),
+              let savedJobs = try? JSONDecoder().decode([Job].self, from: savedJobData) else {
+            return []
+        }
+        return savedJobs
+    }
+    
+    func isJobAlreadyApplied(_ savedJobs: [Job], job: Job) -> Bool {
+        guard !savedJobs.isEmpty else {
+            return false
+        }
+        let isApplied = savedJobs.contains(where: { $0.id == job.id })
+        return isApplied
+    }
+    
+    func showAlert(message: String) {
+        let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }
+    

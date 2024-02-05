@@ -56,7 +56,7 @@ class HomeTableViewCell: UITableViewCell {
     
     ///  Applies custom design to the UI elements of the cell.
     func homedesign(){
-        dateView.layer.cornerRadius = 5
+        //dateView.layer.cornerRadius = 5
         jobDetailsView.layer.cornerRadius = 10
     }
     /// Change the appearence to wishlisted items
