@@ -1082,7 +1082,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPf-mL-v0c">
                                                             <rect key="frame" x="217" y="16" width="98" height="34"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Application deadline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNd-ev-vpH">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNd-ev-vpH">
                                                                     <rect key="frame" x="0.0" y="0.0" width="98" height="12"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="12" id="INS-Ya-5ye"/>
@@ -1162,8 +1162,7 @@
                                         <connections>
                                             <outlet property="descriptionLabel" destination="wz2-Kw-b1Q" id="98L-w5-Inb"/>
                                             <outlet property="locationLabel" destination="zNW-je-JWy" id="k5Z-tg-hG7"/>
-                                            <outlet property="statusLabel" destination="FWV-Rb-gYR" id="roG-zf-TQZ"/>
-                                            <outlet property="statusView" destination="yPf-mL-v0c" id="f0k-xz-LTj"/>
+                                            <outlet property="statuslabel" destination="FWV-Rb-gYR" id="O5q-tF-vsB"/>
                                             <outlet property="titleLabel" destination="ERT-Uz-4c2" id="7BO-Zl-JUe"/>
                                         </connections>
                                     </tableViewCell>
@@ -1210,24 +1209,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPU-IV-ZaV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5844" y="651"/>
-        </scene>
-        <!--profile-->
-        <scene sceneID="zLd-aw-NGt">
-            <objects>
-                <viewController id="hk3-AL-Itt" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iFv-Hu-KaY">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="u5l-iU-jRd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="profile" image="person" catalog="system" id="Ht6-NE-fw6">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V1r-jc-gq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6866" y="922"/>
         </scene>
         <!--Profile-->
         <scene sceneID="DdS-Tb-K6P">
