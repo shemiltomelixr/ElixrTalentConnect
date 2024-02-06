@@ -17,5 +17,8 @@ class TabBarViewController: UITabBarController {
     func designTab(){
         //Hide the backbutton
         self.navigationItem.setHidesBackButton(true, animated: false)
+        self.tabBar.layer.cornerRadius = 30
+        self.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        self.tabBar.clipsToBounds = true
     }
 }

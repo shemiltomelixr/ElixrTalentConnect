@@ -199,7 +199,6 @@
 				CA7C729B2B5FB56200DE195B /* TabBar */,
 				CAF7D9132B67CE5100A80A1E /* SideMenu */,
 				CA46E2FC2B70D2AC001423D3 /* StringExtension.swift */,
-				CA46E2FE2B70FACC001423D3 /* Extension */,
 			);
 			path = ElixrTalentConnect;
 			sourceTree = "<group>";
@@ -249,13 +248,6 @@
 				CA8D0CA52B71448300EFEBE1 /* MyJobTableViewCell.swift */,
 			);
 			path = MyJob;
-			sourceTree = "<group>";
-		};
-		CA46E2FE2B70FACC001423D3 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		CA723CCE2B6FC69700736F2D /* Profile */ = {

@@ -88,4 +88,7 @@ extension HomeViewController: UISearchBarDelegate {
             viewModel.updateFilteredJobs(filteredJobs)
             tableView.reloadData()
     }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }

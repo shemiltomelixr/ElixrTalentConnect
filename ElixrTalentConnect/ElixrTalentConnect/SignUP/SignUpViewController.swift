@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
+class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate{
     
     // MARK: - IBOutlets
 
@@ -22,6 +22,8 @@ class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         navigationController?.popViewController(animated: true)
     }
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var signUpView: UIView!
     /// check validation when signup tapped
     /// - Parameter sender: The object that triggered the action.
     @IBAction func SignUpTapped(_ sender: Any) {
@@ -52,8 +54,16 @@ class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
         self.navigationItem.setHidesBackButton(true, animated: false)
     }
+    deinit {
+           // Unsubscribe from keyboard notifications
+           NotificationCenter.default.removeObserver(self)
+       }
     
     // MARK: - UITableViewDataSource
     
@@ -69,6 +79,7 @@ class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         let tableValue = viewModel.tableValues[indexPath.row]
         // Configure the cell based on the SignUpModel
         cell.cellLabel.text = tableValue.title
+        
         cell.cellTextField.placeholder = tableValue.placeholderText
         cell.cellImage.image = tableValue.systemImage
         // Handle special cases for password fields
@@ -87,6 +98,7 @@ class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDat
             // Hide the button for non-password fields
             cell.cellButton.isHidden = true
         }
+        cell.cellTextField.delegate = self 
         // Return the configured cell
         return cell
     }
@@ -101,4 +113,19 @@ class SignUpViewController: UIViewController ,UITableViewDelegate,UITableViewDat
            alertController.addAction(okAction)
            present(alertController, animated: true, completion: nil)
        }
+    /// Dismisses the keyboard when the "Return"  button is pressed on the keyboard.
+    /// - Parameter textField: The text field for which the "Return" key was pressed.
+    /// - Returns: A boolean value indicating whether the text field should process the "Return" key press.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            self.view.frame.origin.y = -keyboardSize.height + 200
+        }
+      }
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        self.view.frame.origin.y = 0
+      }
 }

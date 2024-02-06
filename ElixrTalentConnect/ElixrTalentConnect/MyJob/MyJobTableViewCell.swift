@@ -14,11 +14,12 @@ class MyJobTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var statuslabel: UILabel!
 
-  
+    @IBOutlet weak var statusView: UIView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        //design()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,5 +32,21 @@ class MyJobTableViewCell: UITableViewCell {
         descriptionLabel.text = job.description
         locationLabel.text = job.location
         statuslabel.text = job.status
+        
+        if statuslabel.text == "Scheduled"{
+            statusView.backgroundColor = .green
+        }
+        else if statuslabel.text == "Rejected"{
+            statusView.backgroundColor = .red
+        }else{
+            statusView.backgroundColor = .white
+        }
+        
     }
+    
+    func design() {
+        statusView.layer.cornerRadius = 10
+    }
+    
+    
 }

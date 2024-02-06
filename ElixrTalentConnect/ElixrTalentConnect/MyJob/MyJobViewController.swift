@@ -11,6 +11,7 @@ class MyJobViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     var savedJobs: [Job] = []
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBarField: UISearchBar!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return savedJobs.count
@@ -28,6 +29,7 @@ class MyJobViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBarField.delegate = self
         savedJobs = getSavedJobs()
         tableView.reloadData()
 
@@ -45,4 +47,14 @@ class MyJobViewController: UIViewController,UITableViewDelegate, UITableViewData
            }
            return savedJobs
        }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension MyJobViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
 }
