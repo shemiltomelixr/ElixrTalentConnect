@@ -14,17 +14,7 @@ class ProfileViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        design()
         navigationController?.setNavigationBarHidden(true, animated: false)
        
     }
-    
-    func design(){
-       // profileImage.layer.cornerRadius = profileImage.bounds.width / 2
-        //profileImage.layer.masksToBounds = true
-        //profileImage.layer.borderWidth = 2.0
-        //profileImage.layer.borderColor = UIColor.black.cgColor
-        
-    }
-
 }

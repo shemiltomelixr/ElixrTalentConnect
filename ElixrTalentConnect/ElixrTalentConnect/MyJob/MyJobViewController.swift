@@ -10,6 +10,9 @@ import UIKit
 class MyJobViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     var savedJobs: [Job] = []
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBarField: UISearchBar!
     
@@ -26,6 +29,8 @@ class MyJobViewController: UIViewController,UITableViewDelegate, UITableViewData
         cell.configureCell(job)
         return cell
     }
+    
+    // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

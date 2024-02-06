@@ -120,11 +120,13 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
         textField.resignFirstResponder()
         return true
     }
+    
     @objc private func keyboardWillShow(_ notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             self.view.frame.origin.y = -keyboardSize.height + 200
         }
       }
+    
     @objc private func keyboardWillHide(_ notification: Notification) {
         self.view.frame.origin.y = 0
       }

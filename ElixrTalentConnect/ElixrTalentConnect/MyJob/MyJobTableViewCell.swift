@@ -9,11 +9,12 @@ import UIKit
 
 class MyJobTableViewCell: UITableViewCell {
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var statuslabel: UILabel!
-
     @IBOutlet weak var statusView: UIView!
     
 
