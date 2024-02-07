@@ -71,6 +71,7 @@ class JobDetailsViewController: UIViewController {
         }
     }
     
+    //add the job id to the wishlist
     func wishList(){
         guard let jobUniqueId = job?.id else { return }
         let isWishlist = UserDefaults.standard.bool(forKey: jobUniqueId)
@@ -78,6 +79,7 @@ class JobDetailsViewController: UIViewController {
         
     }
 
+    // For applying the job
     func applyJob() {
         var savedJobs = getSavedJobs()
         guard let job = job, !isJobAlreadyApplied(savedJobs, job: job) else {
@@ -91,14 +93,29 @@ class JobDetailsViewController: UIViewController {
         showAlert(message: "Job Applied")
     }
     
-    func getSavedJobs() -> [Job] {
+    //Get details of the saved jobs
+//    func getSavedJobs() -> [Job] {
+//        guard let savedJobData = UserDefaults.standard.data(forKey: .savedJobsKey),
+//              let savedJobs = try? JSONDecoder().decode([Job].self, from: savedJobData) else {
+//            return []
+//        }
+//        return savedJobs
+//    }
+    
+    func getSavedJobs() -> [Job]{
         guard let savedJobData = UserDefaults.standard.data(forKey: .savedJobsKey),
               let savedJobs = try? JSONDecoder().decode([Job].self, from: savedJobData) else {
             return []
         }
         return savedJobs
+            
+        
     }
     
+    
+    
+    
+    //Check if the job ia already applied
     func isJobAlreadyApplied(_ savedJobs: [Job], job: Job) -> Bool {
         guard !savedJobs.isEmpty else {
             return false
@@ -107,6 +124,8 @@ class JobDetailsViewController: UIViewController {
         return isApplied
     }
     
+    /// To show alert
+    /// - Parameter message: The message to be shown
     func showAlert(message: String) {
         let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)

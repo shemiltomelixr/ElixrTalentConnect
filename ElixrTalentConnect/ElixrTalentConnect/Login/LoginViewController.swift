@@ -7,6 +7,7 @@
 
 import UIKit
 import LocalAuthentication
+
 /// Handles login view presentation.
 class LoginViewController: UIViewController, UITextFieldDelegate  {
     
@@ -22,21 +23,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     /// To validate the signup
     /// - Parameter sender: The object that initiated the action
     @IBAction func signInTapped(_ sender: Any) {
-        let loginModel = LoginModel(email: userEmailTextField.text ?? "", password: userPasswordTextField.text ?? "")
-        let validationResult = viewModel.validateCredentials(model: loginModel)
-        if validationResult.isValid {
-            viewModel.authenticateWithBiometrics { [weak self] (success, error) in
-                if success {
-                    self?.performSegue(withIdentifier: "LoginToHome", sender: nil)
-                } else {
-                    if let error = error {
-                        self?.showErrorAlert(message: "Biometric authentication failed: \(error.localizedDescription)")
-                    }
-                }
-            }
-        } else {
-            showErrorAlert(message: validationResult.message ?? "Invalid credentials.")
-        }
+        authenticateSignIn()
+     
     }
     /// Navigate to the sign-up screen
     /// - Parameter sender: The object that initiated the action.
@@ -110,6 +98,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         // Unregister from keyboard notifications
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    //Authentication  for signin
+    func authenticateSignIn() {
+        let loginModel = LoginModel(email: userEmailTextField.text ?? "", password: userPasswordTextField.text ?? "")
+        let validationResult = viewModel.validateCredentials(model: loginModel)
+        if validationResult.isValid {
+            viewModel.authenticateWithBiometrics { [weak self] (success, error) in
+                if success {
+                    self?.performSegue(withIdentifier: "LoginToHome", sender: nil)
+                } else {
+                    if let error = error {
+                        self?.showErrorAlert(message: "Biometric authentication failed: \(error.localizedDescription)")
+                    }
+                }
+            }
+        } else {
+            showErrorAlert(message: validationResult.message ?? "Invalid credentials.")
+        }
     }
     
     // MARK: - design

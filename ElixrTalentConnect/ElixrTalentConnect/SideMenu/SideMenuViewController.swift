@@ -9,8 +9,22 @@ import UIKit
 
 class SideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var sideMenuTableView: UITableView!
     var menuContent = ["About Us","Contact Us","Change Password","Privacy Policy","Terms & Conditions"]
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var sideMenuTableView: UITableView!
+    
+    // MARK: - View Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        sideMenuTableView.delegate = self
+        sideMenuTableView.dataSource = self
+    }
+    
+    // MARK: -UITableViewDataSource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         menuContent.count
     }
@@ -22,23 +36,5 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
         }
    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        sideMenuTableView.delegate = self
-        sideMenuTableView.dataSource = self
-
-        // Do any additional setup after loading the view.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
 }

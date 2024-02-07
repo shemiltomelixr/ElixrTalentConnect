@@ -198,7 +198,7 @@
 				CA3834CC2B552692001306EC /* Login */,
 				CA7C729B2B5FB56200DE195B /* TabBar */,
 				CAF7D9132B67CE5100A80A1E /* SideMenu */,
-				CA46E2FC2B70D2AC001423D3 /* StringExtension.swift */,
+				CAC056F42B738E2C00AC7683 /* Extention */,
 			);
 			path = ElixrTalentConnect;
 			sourceTree = "<group>";
@@ -264,6 +264,14 @@
 				CA7C72992B5FB55C00DE195B /* TabBarViewController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CAC056F42B738E2C00AC7683 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				CA46E2FC2B70D2AC001423D3 /* StringExtension.swift */,
+			);
+			path = Extention;
 			sourceTree = "<group>";
 		};
 		CAF7D9132B67CE5100A80A1E /* SideMenu */ = {
@@ -625,7 +633,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -688,7 +696,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

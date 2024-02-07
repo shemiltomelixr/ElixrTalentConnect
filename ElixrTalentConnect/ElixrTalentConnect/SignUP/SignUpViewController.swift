@@ -22,32 +22,17 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
         navigationController?.popViewController(animated: true)
     }
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var signUpView: UIView!
     /// check validation when signup tapped
     /// - Parameter sender: The object that triggered the action.
     @IBAction func SignUpTapped(_ sender: Any) {
-        let fullNameCell = tableView.cellForRow(at: IndexPath(row: viewModel.tableValues.firstIndex(of: .fullName) ?? 0, section: 0)) as? SignUPTableViewCell
-        let emailCell = tableView.cellForRow(at: IndexPath(row: viewModel.tableValues.firstIndex(of: .emailAddress) ?? 0, section: 0)) as? SignUPTableViewCell
-        let passwordCell = tableView.cellForRow(at: IndexPath(row: viewModel.tableValues.firstIndex(of: .textPassword) ?? 0, section: 0)) as? SignUPTableViewCell
-        let confirmPasswordCell = tableView.cellForRow(at: IndexPath(row: viewModel.tableValues.firstIndex(of: .confirmPassword) ?? 0, section: 0)) as? SignUPTableViewCell
-        // Extract user input from cells
-        let fullName = fullNameCell?.cellTextField.text
-        let email = emailCell?.cellTextField.text
-        let password = passwordCell?.cellTextField.text
-        let confirmPassword = confirmPasswordCell?.cellTextField.text
-        // Validate sign-up information
-        if let errorMessage = viewModel.validateSignUp(fullName: fullName, emailAddress: email, password: password, confirmPassword: confirmPassword) {
-                showAlert(message: errorMessage)
-            } else {
-                self.performSegue(withIdentifier: "SignUpToHome", sender: nil)
-            }
+        authenticateSignUp()
     }
     
     // MARK: - Properties
     
     // Get the SignUpModel for the current row
-    private let viewModel = SignUpViewModel()
+     let viewModel = SignUpViewModel()
     
     
     // MARK: - View Controller Lifecycle
@@ -79,7 +64,6 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
         let tableValue = viewModel.tableValues[indexPath.row]
         // Configure the cell based on the SignUpModel
         cell.cellLabel.text = tableValue.title
-        
         cell.cellTextField.placeholder = tableValue.placeholderText
         cell.cellImage.image = tableValue.systemImage
         // Handle special cases for password fields
@@ -103,19 +87,38 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
         return cell
     }
     
+    // To authenticate the signup
+    func authenticateSignUp() {
+        let fullNameCell = tableView.cellForRow(at: IndexPath(row: viewModel.tableValues.firstIndex(of: .fullName) ?? 0, section: 0)) as? SignUPTableViewCell
+        let emailCell = tableView.cellForRow(at: IndexPath(row: viewModel.tableValues.firstIndex(of: .emailAddress) ?? 0, section: 0)) as? SignUPTableViewCell
+        let passwordCell = tableView.cellForRow(at: IndexPath(row: viewModel.tableValues.firstIndex(of: .textPassword) ?? 0, section: 0)) as? SignUPTableViewCell
+        let confirmPasswordCell = tableView.cellForRow(at: IndexPath(row: viewModel.tableValues.firstIndex(of: .confirmPassword) ?? 0, section: 0)) as? SignUPTableViewCell
+        // Extract user input from cells
+        let fullName = fullNameCell?.cellTextField.text
+        let email = emailCell?.cellTextField.text
+        let password = passwordCell?.cellTextField.text
+        let confirmPassword = confirmPasswordCell?.cellTextField.text
+        // Validate sign-up information
+        if let errorMessage = viewModel.validateSignUp(fullName: fullName, emailAddress: email, password: password, confirmPassword: confirmPassword) {
+                showAlert(message: errorMessage)
+            } else {
+                self.performSegue(withIdentifier: "SignUpToHome", sender: nil)
+            }
+    }
+    
     // MARK: - Alert
     
     /// To show alert
     /// - Parameter message: The message to be shown in the alert.
-    private func showAlert(message: String) {
+     func showAlert(message: String) {
            let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
            alertController.addAction(okAction)
            present(alertController, animated: true, completion: nil)
        }
-    /// Dismisses the keyboard when the "Return"  button is pressed on the keyboard.
-    /// - Parameter textField: The text field for which the "Return" key was pressed.
-    /// - Returns: A boolean value indicating whether the text field should process the "Return" key press.
+    
+    // MARK: - Keyboard adjustment
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

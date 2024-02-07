@@ -16,6 +16,8 @@ class MyJobViewController: UIViewController,UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBarField: UISearchBar!
     
+    // MARK: - UITableViewDataSource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return savedJobs.count
 
@@ -39,12 +41,14 @@ class MyJobViewController: UIViewController,UITableViewDelegate, UITableViewData
         tableView.reloadData()
 
     }
+    
    override func viewWillAppear(_ animated: Bool) {
        savedJobs = getSavedJobs()
        tableView.reloadData()
     
    }
      
+    //To get the details of saved jobs
     func getSavedJobs() -> [Job] {
            guard let savedJobData = UserDefaults.standard.data(forKey: .savedJobsKey),
                  let savedJobs = try? JSONDecoder().decode([Job].self, from: savedJobData) else {

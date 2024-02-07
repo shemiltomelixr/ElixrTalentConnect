@@ -40,13 +40,6 @@ class HomeViewModel {
     
     // MARK: - Data Manipulation
 
-    ///  Returns the job at the specified index from the list of all jobs.
-    /// - Parameter index: The index of the job to retrieve.
-    /// - Returns: The job at the specified index from the list of all jobs.
-    func job(at index: Int) -> Job {
-        return jobs[index]
-    }
-    
     /// Updates the list of all jobs with the provided array.
     /// - Parameter job: The new array of jobs to replace the existing list.
     func updateJobs(_ job: [Job]) {

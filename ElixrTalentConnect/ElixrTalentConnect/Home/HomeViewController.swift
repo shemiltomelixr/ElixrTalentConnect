@@ -31,11 +31,11 @@ class HomeViewController: UIViewController ,UITableViewDelegate, UITableViewData
             }
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
   
-    
     // MARK: - UITableViewDelegate
  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -20,20 +20,19 @@ class MyJobTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        //design()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+    
+    // MARK: - cell configration
+    
     func configureCell(_ job: Job) {
         titleLabel.text = job.title
         descriptionLabel.text = job.description
         locationLabel.text = job.location
         statuslabel.text = job.status
-        
         if statuslabel.text == "Scheduled"{
             statusView.backgroundColor = .green
         }
@@ -42,12 +41,5 @@ class MyJobTableViewCell: UITableViewCell {
         }else{
             statusView.backgroundColor = .white
         }
-        
     }
-    
-    func design() {
-        statusView.layer.cornerRadius = 10
-    }
-    
-    
 }

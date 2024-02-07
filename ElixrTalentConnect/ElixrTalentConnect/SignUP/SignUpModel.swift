@@ -15,6 +15,7 @@ enum SignUpModel{
     case textPassword
     case confirmPassword
 }
+
 // Extension to SignUpModel for computed properties
 extension SignUpModel {
     // Computed property to get the title for each signup field
