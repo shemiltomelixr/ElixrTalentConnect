@@ -8,7 +8,7 @@
 import UIKit
 
 /// A view controller responsible for displaying a list of jobs and allowing users to search and view job details.
-class HomeViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     // MARK: - IBOutlets
     
@@ -88,6 +88,7 @@ extension HomeViewController: UISearchBarDelegate {
             viewModel.updateFilteredJobs(filteredJobs)
             tableView.reloadData()
     }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }

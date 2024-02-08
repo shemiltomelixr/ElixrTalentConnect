@@ -39,5 +39,4 @@ final class ElixrTalentConnectTests: XCTestCase {
         validationResult = viewModel.validateCredentials(model: model)
         XCTAssertTrue(validationResult.isValid, "validation result should not be false")
     }
-
 }

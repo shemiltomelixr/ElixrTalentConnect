@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate{
+class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
     // MARK: - IBOutlets
 

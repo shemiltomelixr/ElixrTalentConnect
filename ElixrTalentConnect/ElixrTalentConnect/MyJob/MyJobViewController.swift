@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyJobViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class MyJobViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // Array to store the list of saved job items
     var savedJobs: [Job] = []
@@ -21,7 +21,6 @@ class MyJobViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return savedJobs.count
-
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,13 +39,11 @@ class MyJobViewController: UIViewController,UITableViewDelegate, UITableViewData
         searchBarField.delegate = self
         savedJobs = getSavedJobs()
         tableView.reloadData()
-
     }
     
    override func viewWillAppear(_ animated: Bool) {
        savedJobs = getSavedJobs()
        tableView.reloadData()
-    
    }
      
     //To get the details of saved jobs
@@ -66,5 +63,4 @@ extension MyJobViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
-    
 }

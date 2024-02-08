@@ -17,7 +17,6 @@ class MyJobTableViewCell: UITableViewCell {
     @IBOutlet weak var statuslabel: UILabel!
     @IBOutlet weak var statusView: UIView!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }

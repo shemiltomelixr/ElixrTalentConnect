@@ -11,7 +11,6 @@ class JobDetailsViewController: UIViewController {
     
     /// The job object to display details.
     var job: Job?
-    //var viewModel = HomeViewModel()
     
     // MARK: - IBOutlets
     
@@ -60,7 +59,6 @@ class JobDetailsViewController: UIViewController {
         profileImage.layer.masksToBounds = true
         profileImage.layer.borderWidth = 2.0
         profileImage.layer.borderColor = UIColor.black.cgColor
-        
     }
     
     func wishListButtonAppearance(){
@@ -78,7 +76,6 @@ class JobDetailsViewController: UIViewController {
         guard let jobUniqueId = job?.id else { return }
         let isWishlist = UserDefaults.standard.bool(forKey: jobUniqueId)
         UserDefaults.standard.set(!isWishlist, forKey: jobUniqueId)
-        
     }
 
     // For applying the job

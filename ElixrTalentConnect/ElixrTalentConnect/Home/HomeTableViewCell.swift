@@ -27,6 +27,7 @@ class HomeTableViewCell: UITableViewCell {
     }
     /// initialize a new instance of HomeViewModel
     var viewModel = HomeViewModel()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         homedesign()
@@ -56,9 +57,9 @@ class HomeTableViewCell: UITableViewCell {
     
     ///  Applies custom design to the UI elements of the cell.
     func homedesign(){
-        //dateView.layer.cornerRadius = 5
         jobDetailsView.layer.cornerRadius = 10
     }
+    
     /// Change the appearence to wishlisted items
     func updateWishlistButtonAppearance() {
         guard let jobUniqueId = viewModel.jobId else { return }
