@@ -26,7 +26,7 @@ final class ElixrTalentConnectTests: XCTestCase {
     // To test the Login Validations.
     func testValidateCredentials() throws {
         //Invalid email
-        var model = LoginModel(email: "invalidEmail", password: "validPassword")
+        var model = LoginModel(email: "invalidEmail", password: "validPassword123")
         let viewModel = try XCTUnwrap(viewModel)
         var validationResult = viewModel.validateCredentials(model: model)
         XCTAssertFalse(validationResult.isValid, "validation result should not be false")
