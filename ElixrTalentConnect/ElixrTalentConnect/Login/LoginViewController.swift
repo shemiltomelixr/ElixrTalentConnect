@@ -24,7 +24,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     /// - Parameter sender: The object that initiated the action
     @IBAction func signInTapped(_ sender: Any) {
         authenticateSignIn()
-     
     }
     /// Navigate to the sign-up screen
     /// - Parameter sender: The object that initiated the action.

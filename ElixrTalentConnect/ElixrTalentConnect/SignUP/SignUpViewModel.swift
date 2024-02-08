@@ -9,6 +9,7 @@ import Foundation
 
 class SignUpViewModel {
     
+    // Array of SignUpModel which enum values representing sign-up fields
     var tableValues: [SignUpModel] = [.fullName, .emailAddress, .textPassword, .confirmPassword]
     
     // MARK: - validation

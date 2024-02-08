@@ -22,11 +22,12 @@ class JobDetailsViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var wishListButtonInJobDetails: UIButton!
+    //To add job to whishlist
     @IBAction func wishListButtonInJobDetailsTapped(_ sender: Any) {
         wishList()
         wishListButtonAppearance()
     }
-    
+    //To apply job
     @IBAction func applyJobButtonTapped(_ sender: Any) {
         applyJob()
     }
@@ -53,6 +54,7 @@ class JobDetailsViewController: UIViewController {
         locationLabel.text = job.location
     }
     
+    //design implementation
     func design(){
         profileImage.layer.cornerRadius = profileImage.bounds.width / 2
         profileImage.layer.masksToBounds = true
@@ -94,26 +96,13 @@ class JobDetailsViewController: UIViewController {
     }
     
     //Get details of the saved jobs
-//    func getSavedJobs() -> [Job] {
-//        guard let savedJobData = UserDefaults.standard.data(forKey: .savedJobsKey),
-//              let savedJobs = try? JSONDecoder().decode([Job].self, from: savedJobData) else {
-//            return []
-//        }
-//        return savedJobs
-//    }
-    
     func getSavedJobs() -> [Job]{
         guard let savedJobData = UserDefaults.standard.data(forKey: .savedJobsKey),
               let savedJobs = try? JSONDecoder().decode([Job].self, from: savedJobData) else {
             return []
         }
         return savedJobs
-            
-        
     }
-    
-    
-    
     
     //Check if the job ia already applied
     func isJobAlreadyApplied(_ savedJobs: [Job], job: Job) -> Bool {

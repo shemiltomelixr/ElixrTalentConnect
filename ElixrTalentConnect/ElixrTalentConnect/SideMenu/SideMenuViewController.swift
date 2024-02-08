@@ -9,6 +9,7 @@ import UIKit
 
 class SideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // Array to hold the menu items
     var menuContent = ["About Us","Contact Us","Change Password","Privacy Policy","Terms & Conditions"]
     
     // MARK: - IBOutlets
@@ -35,6 +36,4 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
         cell.textLabel?.textAlignment = .center
         return cell
         }
-   
-  
 }

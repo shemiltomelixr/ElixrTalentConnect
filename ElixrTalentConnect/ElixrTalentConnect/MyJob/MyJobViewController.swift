@@ -9,6 +9,7 @@ import UIKit
 
 class MyJobViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
+    // Array to store the list of saved job items
     var savedJobs: [Job] = []
     
     // MARK: - IBOutlets

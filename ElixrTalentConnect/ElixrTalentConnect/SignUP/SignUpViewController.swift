@@ -41,10 +41,9 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        
         self.navigationItem.setHidesBackButton(true, animated: false)
     }
+    
     deinit {
            // Unsubscribe from keyboard notifications
            NotificationCenter.default.removeObserver(self)

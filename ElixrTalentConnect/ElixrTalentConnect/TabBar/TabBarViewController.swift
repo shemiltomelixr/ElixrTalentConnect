@@ -9,11 +9,14 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //calling the function containing necceesaary design details.
         designTab()
     }
+    
     /// Design for the tabbar.
     func designTab(){
         //Hide the backbutton
